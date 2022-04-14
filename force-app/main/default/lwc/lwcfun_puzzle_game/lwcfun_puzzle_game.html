@@ -1,3 +1,10 @@
 <template>
-    
+    <lightning-layout class="background" vertical-align="center" horizontal-align="center" multiple-rows>
+        <lightning-layout-item size="2" class="start-button slds-align_absolute-center" if:false={playingScreenDisplayed} onclick={onStart}>
+            START
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="shrink" class="slds-align_absolute-center"  if:true={playingScreenDisplayed}>
+            <c-lwcfun_puzzle_table></c-lwcfun_puzzle_table>
+        </lightning-layout-item>
+    </lightning-layout>
 </template>

@@ -1,0 +1,22 @@
+.puzzle{
+    width: 439px;
+    height: 439px;
+    background-color: #f68a0d;
+    border-radius: 10px;
+}
+
+.puzzle-pawn{
+    width: 120px;
+    height: 120px;
+    font-size: 45px;
+    color: #462400;
+    font-weight: bold;
+    background-color: #974e00;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.puzzle-empty-case{
+    width: 120px;
+    height: 120px;
+}
