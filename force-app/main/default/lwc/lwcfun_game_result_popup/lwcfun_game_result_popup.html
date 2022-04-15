@@ -1,0 +1,16 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <div class="message won-message" if:true={hasWon}>YOU'VE WON!</div>
+                <div class="message failed-message" if:true={hasFailed}>YOU'VE FAILED!</div>
+                <lightning-layout class="background" vertical-align="center" horizontal-align="center">
+                    <lightning-layout-item size="2" class="replay-btn slds-align_absolute-center" if:false={playingScreenDisplayed} onclick={onStart}>
+                        REPLAY
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>

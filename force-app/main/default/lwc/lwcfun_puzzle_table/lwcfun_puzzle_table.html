@@ -1,11 +1,14 @@
 <template>
     <lightning-layout class="puzzle" multiple-rows pull-to-boundary="small">
-        <template for:each={puzzleList} for:item="puzzleElement" for:index="index">
-            <lightning-layout-item if:true={puzzleElement} key={puzzleElement} data-id={index} onclick={onSelectPuzzleElement} class="puzzle-pawn slds-align_absolute-center">
-                {puzzleElement}
+        <template if:true={hasWon}>
+            <c-lwcfun_game_result_popup has-won={hasWon} has-failed={hasFailed}></c-lwcfun_game_result_popup>
+        </template>
+        <template for:each={puzzleList} for:item="puzzlePawnNum" for:index="index">
+            <lightning-layout-item if:true={puzzlePawnNum} key={puzzlePawnNum} data-id={index} onclick={onSelectPuzzlePawn} class="puzzle-pawn slds-align_absolute-center">
+                {puzzlePawnNum}
             </lightning-layout-item>
             <!-- {puzzleElement} is false when its value is zero(that means the empty space in this case)-->
-            <lightning-layout-item if:false={puzzleElement} key={puzzleElement} class="puzzle-empty-case slds-align_absolute-center">
+            <lightning-layout-item if:false={puzzlePawnNum} key={puzzlePawnNum} class="puzzle-empty-case slds-align_absolute-center">
                 
             </lightning-layout-item>
         </template>
