@@ -3,6 +3,7 @@
     height: 439px;
     background-color: #f68a0d;
     border-radius: 10px;
+    box-shadow: 0px 0px 40px 10px;
 }
 
 .puzzle-pawn{
@@ -14,9 +15,30 @@
     background-color: #974e00;
     border-radius: 10px;
     cursor: pointer;
+    border: solid #834501 10px;
+}
+
+.puzzle-pawn:hover{
+    background-color: #763d01;
 }
 
 .puzzle-empty-case{
     width: 120px;
     height: 120px;
+}
+
+.counter{
+    background-color: #f69d35;
+    color: white;
+    font-weight: bold;
+    font-size: 100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 150px;
+    box-shadow: 0px 0px 40px 10px #00000082;
+    border: solid #e5881b 5px;
+}
+
+.puzzle-table{
+    padding: 100px;
 }

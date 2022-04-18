@@ -1,16 +1,24 @@
 <template>
-    <lightning-layout class="puzzle" multiple-rows pull-to-boundary="small">
-        <template if:true={hasWon}>
-            <c-lwcfun_game_result_popup has-won={hasWon} has-failed={hasFailed}></c-lwcfun_game_result_popup>
-        </template>
-        <template for:each={puzzleList} for:item="puzzlePawnNum" for:index="index">
-            <lightning-layout-item if:true={puzzlePawnNum} key={puzzlePawnNum} data-id={index} onclick={onSelectPuzzlePawn} class="puzzle-pawn slds-align_absolute-center">
-                {puzzlePawnNum}
+    <template if:true={resultPopupOpened}>
+        <c-lwcfun_game_result_popup has-won={hasWon} has-failed={hasFailed} onreplay={onReplay}></c-lwcfun_game_result_popup>
+    </template>
+    <lightning-layout horizontal-align="center" vertical-align="center" multiple-rows>
+            <lightning-layout-item flexibility="shrink">
+                <div class="counter slds-align_absolute-center">{secondsCounter}</div>
             </lightning-layout-item>
-            <!-- {puzzleElement} is false when its value is zero(that means the empty space in this case)-->
-            <lightning-layout-item if:false={puzzlePawnNum} key={puzzlePawnNum} class="puzzle-empty-case slds-align_absolute-center">
-                
+            <lightning-layout-item flexibility="shrink" class="puzzle-table">
+                <lightning-layout class="puzzle" multiple-rows pull-to-boundary="small">
+                    <template for:each={puzzleList} for:item="puzzlePawnNum" for:index="index">
+                        <lightning-layout-item if:true={puzzlePawnNum} key={puzzlePawnNum} data-id={index} onclick={onSelectPuzzlePawn} class="puzzle-pawn slds-align_absolute-center">
+                            {puzzlePawnNum}
+                        </lightning-layout-item>
+                        <!-- {puzzleElement} is false when its value is zero(that means the empty space in this case)-->
+                        <lightning-layout-item if:false={puzzlePawnNum} key={puzzlePawnNum} class="puzzle-empty-case slds-align_absolute-center">
+                            
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
             </lightning-layout-item>
-        </template>
     </lightning-layout>
+    
 </template>
