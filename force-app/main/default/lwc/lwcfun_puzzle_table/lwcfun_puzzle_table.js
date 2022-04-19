@@ -92,6 +92,7 @@ export default class Lwcfun_puzzle_table extends LightningElement {
         for(let i=0;i<this.puzzleList.length-2;i++){
             if(this.puzzleList[i]>this.puzzleList[i+1]) return false;
         }
+        clearInterval(this.setIntervalReference);
         return true;
     }
 
@@ -99,9 +100,9 @@ export default class Lwcfun_puzzle_table extends LightningElement {
         this.hasFailed=false;
         this.hasWon=false;
         this.puzzleMatrix=[
-            [1,7,0],
-            [8,3,6],
-            [2,5,4]
+            [1,2,3],
+            [4,5,6],
+            [0,7,8]
         ];
         this.init();
     }
